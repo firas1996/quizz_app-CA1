@@ -8,9 +8,16 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
+  var qIndex = 0;
+  void answerdQuestion(String selectedAnswer) {
+    setState(() {
+      qIndex++;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final currentQuestion = questions[0];
+    final currentQuestion = questions[qIndex];
     return Container(
       margin: EdgeInsets.all(20),
       child: Column(
@@ -25,12 +32,13 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           ),
           SizedBox(height: 20),
           ...currentQuestion.createShuffledAnswers().map((item) {
-            return MyButton(label: item, onClick: () {});
+            return MyButton(
+              label: item,
+              onClick: () {
+                answerdQuestion(item);
+              },
+            );
           }),
-
-          // ElevatedButton(onPressed: () {}, child: Text("Answer2")),
-          // ElevatedButton(onPressed: () {}, child: Text("Answer3")),
-          // ElevatedButton(onPressed: () {}, child: Text("Answer4")),
         ],
       ),
     );
