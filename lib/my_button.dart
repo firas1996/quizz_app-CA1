@@ -9,8 +9,8 @@ class MyButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onClick,
-      child: Text(label),
       style: ElevatedButton.styleFrom(),
+      child: Text(label),
     );
   }
 }

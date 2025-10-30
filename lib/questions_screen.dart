@@ -3,6 +3,8 @@ import 'package:quizz_app/data/questions.dart';
 import 'package:quizz_app/my_button.dart';
 
 class QuestionsScreen extends StatefulWidget {
+  const QuestionsScreen({super.key});
+
   @override
   State<QuestionsScreen> createState() => _QuestionsScreenState();
 }
