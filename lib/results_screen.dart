@@ -49,8 +49,30 @@ class ResultsScreen extends StatelessWidget {
             width: 300,
             child: ListView.builder(
               itemCount: getFinalResults().length,
-              itemBuilder: (ctx, index) =>
-                  Text(getFinalResults()[index].toString()),
+              itemBuilder: (ctx, index) => Row(
+                children: [
+                  Text(
+                    ((getFinalResults()[index]["index"] as int) + 1).toString(),
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text(
+                          (getFinalResults()[index]["question"]).toString(),
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        Text(
+                          (getFinalResults()[index]["correct_answer"])
+                              .toString(),
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        SizedBox(height: 50),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
 
